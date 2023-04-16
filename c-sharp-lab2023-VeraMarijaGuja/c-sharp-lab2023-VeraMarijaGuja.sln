@@ -5,7 +5,11 @@ VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vjezba1", "Vjezba1\Vjezba1.csproj", "{54A0450E-E136-4AEB-8F57-5F035C33BC24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vjezba2", "Vjezba2\Vjezba2.csproj", "{E637A88D-2465-4E1C-AC9E-C243BE7B0B90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vjezba2", "Vjezba2\Vjezba2.csproj", "{E637A88D-2465-4E1C-AC9E-C243BE7B0B90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vjezba3", "vjezba3\vjezba3.csproj", "{AD036E34-E29E-480F-AF6C-63A841F66204}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vjezba3_v2", "vjezba3_v2\vjezba3_v2.csproj", "{8A0CA1BD-024A-4CC5-9ADA-47321E51F9F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{E637A88D-2465-4E1C-AC9E-C243BE7B0B90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E637A88D-2465-4E1C-AC9E-C243BE7B0B90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E637A88D-2465-4E1C-AC9E-C243BE7B0B90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD036E34-E29E-480F-AF6C-63A841F66204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD036E34-E29E-480F-AF6C-63A841F66204}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD036E34-E29E-480F-AF6C-63A841F66204}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD036E34-E29E-480F-AF6C-63A841F66204}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A0CA1BD-024A-4CC5-9ADA-47321E51F9F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A0CA1BD-024A-4CC5-9ADA-47321E51F9F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A0CA1BD-024A-4CC5-9ADA-47321E51F9F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A0CA1BD-024A-4CC5-9ADA-47321E51F9F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

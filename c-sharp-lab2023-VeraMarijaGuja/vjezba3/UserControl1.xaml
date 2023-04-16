@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="vjezba3.UserControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:vjezba3"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="Aquamarine">
+        <Menu Background="Coral" Margin="100,0,554,420">
+            <MenuItem Header="Add" Click="MenuItem1"/>
+            <MenuItem Header="Delete" Click="MenuItem2"/>
+            <MenuItem Header="Edit" Click="MenuItem3"/>
+        </Menu>
+        <StackPanel x:Name="stackPanel1" Grid.Column="0" Margin="20,35,479,13">
+            <Label Content="OIB:" Height="24"/>
+            <TextBox x:Name="txtOib" Margin="0 5" TextChanged="txtOib_TextChanged"/>
+            <Label Content="MBO:"/>
+            <TextBox x:Name="txtMbo" Margin="0 5"/>
+            <Label Content="First Name:"/>
+            <TextBox x:Name="txtFirstName" Margin="0 5"/>
+            <Label Content="Last Name:"/>
+            <TextBox x:Name="txtLastName" Margin="0 5"/>
+            <Label Content="Date of birth:"/>
+            <DatePicker x:Name="dpDateOfBirth" Margin="0 5"/>
+            <Label Content="Gender:"/>
+            <ComboBox x:Name="cbGender" Margin="0 5">
+                <ComboBoxItem>Female</ComboBoxItem>
+                <ComboBoxItem>Male</ComboBoxItem>
+            </ComboBox>
+            <Label Content="Medical Diagnosis:"/>
+            <TextBox x:Name="txtDiagnosis" />
+            <Button Content="AddPatient" Margin="0 5" Click="ButtonAddPatient" RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.03"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+        </StackPanel>
+        
+        <ListBox x:Name="patientsList" Grid.Row="0" Margin="352,35,20,20">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Oib}"/>
+                        <TextBlock Text="{Binding Mbo}"/>
+                        <TextBlock Text="{Binding FirstName}"/>
+                        <TextBlock Text="{Binding LastName}"/>
+                        <TextBlock Text="{Binding DateOfBirth}"/>
+                        <TextBlock Text="{Binding Gender}"/>
+                        <TextBlock Text="{Binding Diagnosis}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel x:Name="stackPanel2" Grid.Column="0" Margin="20" Visibility="Collapsed">
+            <Label Content="Patient oib:"/>
+            <TextBox x:Name="txtsearchOib" Margin="0 5"/>
+            <Button Content="Search" Margin="0 5" Click="ButtonEditPatientSearch"/>
+
+
+            <StackPanel x:Name="stackPanel3" Margin="0 5" Visibility="Collapsed">
+                <Label Content="OIB:"/>
+                <TextBox x:Name="txtEditOib" Margin="0 5"/>
+                <Label Content="MBO:"/>
+                <TextBox x:Name="txtEditMbo" Margin="0 5"/>
+                <Label Content="First Name:"/>
+                <TextBox x:Name="txtEditFirstName" Margin="0 5"/>
+                <Label Content="Last Name:"/>
+                <TextBox x:Name="txtEditLastName" Margin="0 5"/>
+                <Label Content="Date of Birth:"/>
+                <DatePicker x:Name="dpEditDOB" Margin="0 5"/>
+                <Label Content="Gender:"/>
+                <ComboBox x:Name="cbEditGender" Margin="0 5">
+                    <ComboBoxItem>Female</ComboBoxItem>
+                    <ComboBoxItem>Male</ComboBoxItem>
+                </ComboBox>
+                <Label Content="Medical Diagnosis:"/>
+                <TextBox x:Name="txtEditDiagnosis" />
+                <Button Content="Edit" Margin="0 5" Click="ButtonEditPatient"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel x:Name="stackPanel4" Grid.Column="0" Margin="20" Visibility="Collapsed">
+            <Label Content="Patient Oib:"/>
+            <TextBox x:Name="txtDeleteOib" Margin="0 5"/>
+            <Button Content="Delete" Margin="0 5" Click="ButtonDeletePatient"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

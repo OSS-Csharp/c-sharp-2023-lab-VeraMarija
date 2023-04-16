@@ -33,10 +33,7 @@ class Program
 
     static void Main()
     {
-        //ReadDataFromFile();
-
         string action;
-
         do
         {
             Console.WriteLine("What do you want to do? ");
@@ -45,7 +42,6 @@ class Program
             Console.WriteLine("3. Update patient data");
             Console.WriteLine("4. Print all patients data");
             Console.WriteLine("0. Leave the program");
-
             action = Console.ReadLine();
 
             switch (action)
@@ -69,7 +65,6 @@ class Program
                     Console.WriteLine("Wrong action!!!");
                     break;
             }
-
             SaveData();
         } while (action != "0");
     }

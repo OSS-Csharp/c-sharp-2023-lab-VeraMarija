@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:vjezba3_v2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="502" Width="818">
     <Grid Margin="0,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="0*"/>
@@ -19,7 +19,7 @@
         </Menu>
 
         <StackPanel x:Name="stackPanel1" Margin="0,40,424,-4" Grid.RowSpan="2">
-        <Label Content="OIB:" Height="24" Width="351" Margin="0,0,20,0"/>
+            <Label Content="OIB:" />
             <TextBox x:Name="txtOib" Margin="0,5,50,0" Width="375" />
             <Label Content="MBO:"/>
             <TextBox x:Name="txtMbo" Margin="0 5"/>
@@ -27,7 +27,7 @@
             <TextBox x:Name="txtFirstName" Margin="0 5"/>
             <Label Content="Last Name:"/>
             <TextBox x:Name="txtLastName" Margin="0 5"/>
-            <Label Content="Date of birth:" RenderTransformOrigin="0.497,0.032"/>
+            <Label Content="Date of birth:"/>
             <DatePicker x:Name="dpDateOfBirth" Margin="0 5"/>
             <Label Content="Gender:"/>
             <ComboBox x:Name="cbGender" Margin="0 5">
@@ -35,7 +35,7 @@
                 <ComboBoxItem Content="Male"/>
             </ComboBox>
             <Label Content="Medical Diagnosis:"/>
-            <TextBox x:Name="txtDiagnosis" />
+            <TextBox x:Name="txtDiagnosis"  Margin="0 5"/>
             <Button Content="AddPatient" Margin="0 5" Click="ButtonAddPatient" RenderTransformOrigin="0.5,0.5">
                 <Button.RenderTransform>
                     <TransformGroup>
@@ -56,9 +56,10 @@
                         <TextBlock Text="{Binding Mbo}"/>
                         <TextBlock Text="{Binding FirstName}"/>
                         <TextBlock Text="{Binding LastName}"/>
-                        <TextBlock Text="{Binding DateOfBirth}"/>
+                        <TextBlock Text="{Binding Dob}"/>
                         <TextBlock Text="{Binding Gender}"/>
-                        <TextBlock Text="{Binding Diagnosis}"/>
+                        <TextBlock Text="{Binding MedicalDiagnosis}"/>
+                        <Label Content="-----------------------------------------------"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -97,7 +98,7 @@
             <TextBox x:Name="txtDeleteOib" Margin="0 5"/>
             <Button Content="Delete" Margin="0 5" Click="ButtonDeletePatient"/>
         </StackPanel>
-        
+
 
     </Grid>
 </Window>

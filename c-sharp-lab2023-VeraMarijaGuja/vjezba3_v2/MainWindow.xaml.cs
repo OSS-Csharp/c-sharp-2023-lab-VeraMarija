@@ -52,8 +52,8 @@ namespace vjezba3_v2
 
             if (File.Exists(file))
             {
-                string json = File.ReadAllText(file);
-                List<Patient> patients = JsonConvert.DeserializeObject<List<Patient>>(json);
+                string jsonFile = File.ReadAllText(file);
+                List<Patient> patients = JsonConvert.DeserializeObject<List<Patient>>(jsonFile);
                 foreach (Patient p in patients)
                 {
                     patientsList.Items.Add(p);
@@ -101,7 +101,6 @@ namespace vjezba3_v2
                 MedicalDiagnosis = diagnosis,
                 Status = true
             };
-
             patientsList.Items.Add(patient);
             string json = JsonConvert.SerializeObject(patientsList.Items.Cast<Patient>().ToList());
             File.WriteAllText(file, json);
@@ -109,7 +108,6 @@ namespace vjezba3_v2
 
         private void MenuItem1(object sender, RoutedEventArgs e)
         {
-            // Show stackPanel1, hide stackPanel2
             stackPanel1.Visibility = Visibility.Visible;
             stackPanel2.Visibility = Visibility.Collapsed;
             stackPanel4.Visibility = Visibility.Collapsed;
@@ -117,7 +115,6 @@ namespace vjezba3_v2
 
         private void MenuItem2(object sender, RoutedEventArgs e)
         {
-            // Show stackPanel2, hide stackPanel1
             stackPanel1.Visibility = Visibility.Collapsed;
             stackPanel2.Visibility = Visibility.Collapsed;
             stackPanel4.Visibility = Visibility.Visible;
@@ -125,7 +122,6 @@ namespace vjezba3_v2
 
         private void MenuItem3(object sender, RoutedEventArgs e)
         {
-            // Show stackPanel2, hide stackPanel1
             stackPanel1.Visibility = Visibility.Collapsed;
             stackPanel4.Visibility = Visibility.Collapsed;
             stackPanel2.Visibility = Visibility.Visible;
@@ -177,7 +173,7 @@ namespace vjezba3_v2
             editPatient.Mbo = txtEditMbo.Text.Trim();
             editPatient.FirstName = txtEditFirstName.Text.Trim();
             editPatient.LastName = txtEditLastName.Text.Trim();
-            editPatient.Dob = dpDateOfBirth.SelectedDate.Value;
+            editPatient.Dob = dpEditDOB.SelectedDate.Value;
             editPatient.Gender = cbEditGender.SelectedItem.ToString();
             editPatient.MedicalDiagnosis = txtEditDiagnosis.Text.Trim();
 

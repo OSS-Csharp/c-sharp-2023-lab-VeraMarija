@@ -14,7 +14,7 @@
         </Menu>
         <StackPanel x:Name="stackPanel1" Grid.Column="0" Margin="20,35,479,13">
             <Label Content="OIB:" Height="24"/>
-            <TextBox x:Name="txtOib" Margin="0 5" TextChanged="txtOib_TextChanged"/>
+            <TextBox x:Name="txtOib" Margin="0 5" />
             <Label Content="MBO:"/>
             <TextBox x:Name="txtMbo" Margin="0 5"/>
             <Label Content="First Name:"/>
@@ -82,7 +82,7 @@
                 </ComboBox>
                 <Label Content="Medical Diagnosis:"/>
                 <TextBox x:Name="txtEditDiagnosis" />
-                <Button Content="Edit" Margin="0 5" Click="ButtonEditPatient"/>
+                <Button Content="Edit" Margin="0 5" />
             </StackPanel>
         </StackPanel>
 

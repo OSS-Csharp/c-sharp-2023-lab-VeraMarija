@@ -1,7 +1,10 @@
-﻿namespace vjezba5.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace vjezba5.Models
 {
     public class PatientModel
     {
+        [Key]
         public string Oib { get; set; }
         public string Mbo { get; set; }
         public string FirstName { get; set; }

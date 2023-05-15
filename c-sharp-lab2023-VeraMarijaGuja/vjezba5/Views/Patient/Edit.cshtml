@@ -1,0 +1,44 @@
+﻿@model vjezba5.Models.PatientModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>PatientModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Oib" />
+            <div class="form-group">
+                <label asp-for="MedicalDiagnosis" class="control-label"></label>
+                <input asp-for="MedicalDiagnosis" class="form-control" />
+                <span asp-validation-for="MedicalDiagnosis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Insurance" class="control-label"></label>
+                <input asp-for="Insurance" class="form-control" />
+                <span asp-validation-for="Insurance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

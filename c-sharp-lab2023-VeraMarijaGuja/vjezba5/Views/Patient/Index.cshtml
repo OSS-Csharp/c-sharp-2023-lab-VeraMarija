@@ -5,7 +5,12 @@
 }
 
 <h2>Index</h2>
-
+<p>
+    @using (@Html.BeginForm())
+    {
+        @Html.TextBox("search") <input type="submit" value="searchString" />
+    }
+</p>
 <p>
     <a asp-action="Create">Create New</a>
 </p>

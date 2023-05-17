@@ -19,13 +19,27 @@ namespace vjezba5.Controllers
         }
 
         // GET: Patient
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-              return _context.Patients != null ? 
+           /* if (!String.IsNullOrEmpty(searchString) && _context.Patients != null)
+            {
+                var patients= _context.Patients.Where(p => p.FirstName.Contains(searchString)).ToList());
+                /*= await _context.Patients.ToListAsync();
+               patients = (List<PatientModel>)patients.Where(p => p.Oib.Contains(searchString)
+                                      || p.Mbo.Contains(searchString)
+                                      || p.FirstName.Contains(searchString)
+                                      || p.LastName.Contains(searchString));
+               Console.WriteLine("--------", patients);
+               ;
+                return View(patients);
+            }
+           */
+            return _context.Patients != null ?
                           View(await _context.Patients.ToListAsync()) :
                           Problem("Entity set 'PatientContext.Patients'  is null.");
         }
 
+        
         // GET: Patient/Details/5
         public async Task<IActionResult> Details(string id)
         {

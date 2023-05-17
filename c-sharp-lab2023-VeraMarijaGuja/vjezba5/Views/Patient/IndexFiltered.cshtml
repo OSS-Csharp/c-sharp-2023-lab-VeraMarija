@@ -1,0 +1,81 @@
+﻿@model IEnumerable<vjezba5.Models.PatientModel>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Index Filtered";
+}
+
+<h2>Index Filtered</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Oib)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mbo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MedicalDiagnosis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Insurance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Oib)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mbo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dob)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MedicalDiagnosis)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Insurance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Oib">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Oib">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Oib">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

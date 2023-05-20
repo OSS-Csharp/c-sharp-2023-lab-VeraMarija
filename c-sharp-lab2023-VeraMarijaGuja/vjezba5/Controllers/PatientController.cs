@@ -19,27 +19,54 @@ namespace vjezba5.Controllers
         }
 
         // GET: Patient
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string sortOrder)
         {
-           /* if (!String.IsNullOrEmpty(searchString) && _context.Patients != null)
+            ViewData["FirstNameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "firstName_asc" : "";
+            ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
+            var patients = from p in _context.Patients
+                           select p;       
+            switch (sortOrder)
             {
-                var patients= _context.Patients.Where(p => p.FirstName.Contains(searchString)).ToList());
-                /*= await _context.Patients.ToListAsync();
-               patients = (List<PatientModel>)patients.Where(p => p.Oib.Contains(searchString)
-                                      || p.Mbo.Contains(searchString)
-                                      || p.FirstName.Contains(searchString)
-                                      || p.LastName.Contains(searchString));
-               Console.WriteLine("--------", patients);
-               ;
-                return View(patients);
+                case "firstName_asc":
+                    patients = patients.OrderBy(p => p.FirstName);
+                    break;             
+                case "Date":
+                    patients = patients.OrderBy(p => p.Dob);
+                    break;
+                case "date_desc":
+                    patients = patients.OrderByDescending(p => p.Dob);
+                    break;
+                default:
+                    patients = patients.OrderBy(s => s.LastName);
+                    break;
             }
-           */
+
             return _context.Patients != null ?
-                          View(await _context.Patients.ToListAsync()) :
+                          View(await patients.AsNoTracking().ToListAsync()) :
                           Problem("Entity set 'PatientContext.Patients'  is null.");
         }
 
-        
+        [HttpPost, ActionName("Index")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> IndexPost(string searchString)
+        {
+            if (_context.Patients == null)
+            {
+                return Problem("Entity set is null.");
+            }
+
+            var patients = from p in _context.Patients
+                         select p;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                patients = patients.Where( p => (p.FirstName!.Contains(searchString)) || (p.LastName!.Contains(searchString)) );
+            }
+
+            return View(await patients.ToListAsync());
+        }
+
+
         // GET: Patient/Details/5
         public async Task<IActionResult> Details(string id)
         {
@@ -105,11 +132,13 @@ namespace vjezba5.Controllers
             {
                 return NotFound();
             }
-            var patientToUpdate = await _context.Patients.FirstOrDefaultAsync(p => p.Oib == id);
-            if (await TryUpdateModelAsync<PatientModel>(
-                patientToUpdate,
-                "",
-                p => p.MedicalDiagnosis, p => p.Insurance, p => p.Status))
+            var patientToUpdate = await _context.Patients.FirstOrDefaultAsync(p => p.Oib == id);          
+            if (await TryUpdateModelAsync<PatientModel>( patientToUpdate,"",
+                p => p.FirstName,
+                p => p.LastName,
+                p => p.MedicalDiagnosis,
+                p => p.Insurance,
+                p => p.Status))
             {
                 try
                 {
